@@ -1,6 +1,5 @@
 const AppError = require('../../core/errors/app-error');
 const UserService = require('./service');
-const HttpResponse = require('../../core/response/http-response');
 const usuarioSchema = require('../../schemas/user'); 
 
 class UserIndex {
