@@ -32,6 +32,7 @@ class BaseService {
   async store(body){
     try {
       const response = new this.model(body);
+      await response.save();
       return new HttpResponse.postSuccessful(response);
     } catch (error) {
       return new AppError.UnexpectedError(error)

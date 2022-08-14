@@ -3,9 +3,9 @@ const { UserIndex } = require('../../modules');
 const router = Router();
 
 router.get('/', UserIndex.index);
-router.get('/', UserIndex.store);
+router.post('/', UserIndex.store);
 router.get('/:id', UserIndex.show);
-router.get('/:id', UserIndex.update);
-router.get('/:id', UserIndex.destroy);
+router.put('/:id', UserIndex.update);
+router.delete('/:id', UserIndex.destroy);
 
 module.exports = router;
