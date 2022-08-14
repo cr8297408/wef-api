@@ -1,6 +1,7 @@
 const AppError = require('../../core/errors/app-error');
 const UserService = require('./service');
-const HttpResponse = require('../../core/response/http-response')
+const HttpResponse = require('../../core/response/http-response');
+const usuarioSchema = require('../../schemas/user'); 
 
 class UserIndex {
 
@@ -26,7 +27,24 @@ class UserIndex {
 	 */
 	async store(req, res){
 		try {
-			const users = await UserService.store(req.body);
+			let {
+				user,
+				name,
+				email,
+				phone,
+				password,
+				type,
+				active
+			} = await usuarioSchema.validateAsync(req.body);
+			const users = await UserService.store({
+				user,
+				name,
+				email,
+				phone,
+				password,
+				type,
+				active
+			});
 			res.status(users.getStatus()).json(users.getData());
 		} catch (error) {
 			let response = new AppError.UnexpectedError(error)
