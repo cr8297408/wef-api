@@ -7,7 +7,6 @@ const DB_HOST = config.DB_HOST;
 
 const connect = async () => {
     const db = await mongoose.connect(DB_HOST, { useNewUrlParser: true, useUnifiedTopology: true });
-    console.log('Conectado a la BD');
 };
 
 module.exports = connect;

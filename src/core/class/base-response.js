@@ -1,5 +1,4 @@
-
-export class BaseResponse {
+class BaseResponse {
   status
   data
   context
@@ -25,3 +24,5 @@ export class BaseResponse {
     }
   }
 }
+
+module.exports = BaseResponse;

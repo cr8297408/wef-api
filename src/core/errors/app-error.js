@@ -1,4 +1,4 @@
-import { BaseError } from '../class/base.error'
+const BaseError = require('../class/base-error');
 
 /**
  * @desc General application errors (few of these as possible)
@@ -8,7 +8,7 @@ import { BaseError } from '../class/base.error'
 const _context = 'AppError'
 
 /** Unexpected error class */
-export class UnexpectedError extends BaseError {
+class UnexpectedError extends BaseError {
 	constructor (error) {
 		super({
 			name: 'UnexpectedError',
@@ -20,7 +20,7 @@ export class UnexpectedError extends BaseError {
 }
 
 /** transaccional error class */
-export class TransactionalError extends BaseError {
+class TransactionalError extends BaseError {
 	constructor () {
 		super({
 			name: 'TransactionalError',
@@ -33,7 +33,7 @@ export class TransactionalError extends BaseError {
 /**
 * validation error class
 */
-export class ValidationError extends BaseError {
+class ValidationError extends BaseError {
 	constructor (message) {
 		super({
 			name: 'ValidationError',
@@ -47,7 +47,7 @@ export class ValidationError extends BaseError {
 /**
 * class for unauthorized errors
 */
-export class UnauthorizedError extends BaseError {
+class UnauthorizedError extends BaseError {
 	constructor (message) {
 		super({
 			name: 'UnauthorizedError',
@@ -61,7 +61,7 @@ export class UnauthorizedError extends BaseError {
 /**
 * class for a entity no exists
 */
-export class EntityDoesNotExistError extends BaseError {
+class EntityDoesNotExistError extends BaseError {
 	constructor (entity) {
 		super({
 			name: 'EntityDoesNotExistError',
@@ -72,7 +72,7 @@ export class EntityDoesNotExistError extends BaseError {
 	}
 }
 /** conditio of a entity does not show results */
-export class EntityConditionDoesNotShowResults extends BaseError {
+class EntityConditionDoesNotShowResults extends BaseError {
 	constructor (entity) {
 		super({
 			name: 'EntityConditionDoesNotShowResults',
@@ -83,7 +83,7 @@ export class EntityConditionDoesNotShowResults extends BaseError {
 	}
 }
 
-export class CorsError extends BaseError {
+class CorsError extends BaseError {
 	constructor (message) {
 		super({
 			name: 'CorsError',
@@ -92,4 +92,14 @@ export class CorsError extends BaseError {
 			message
 		})
 	}
+}
+
+module.exports = {
+	UnexpectedError,
+	TransactionalError,
+	ValidationError,
+	UnauthorizedError,
+	EntityDoesNotExistError,
+	EntityConditionDoesNotShowResults,
+	CorsError	
 }
