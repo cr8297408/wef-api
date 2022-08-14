@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "generate": "node ./generator/generate.js"
   },
   "keywords": [],
   "author": "Cesar Ruiz",
@@ -13,6 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "generate-template-files": "^3.2.1",
     "mongoose": "^6.5.2"
   },
   "devDependencies": {
