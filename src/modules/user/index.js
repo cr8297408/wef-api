@@ -4,12 +4,78 @@ const HttpResponse = require('../../core/response/http-response')
 
 class UserIndex {
 
+	/**
+	 * send request and await the response to method index
+	 * @param {*} req 
+	 * @param {*} res 
+	 */
 	async index(req, res){
 		try {
 			const users = await UserService.index();
 			res.status(users.getStatus()).json(users.getData());
 		} catch (error) {
+			let response = new AppError.UnexpectedError(error);
+			res.status(response.getStatus()).json(response.getData());
+		}
+	}
+
+	/**
+	 * send request and await the response to method store
+	 * @param {*} req 
+	 * @param {*} res 
+	 */
+	async store(req, res){
+		try {
+			const users = await UserService.store(req.body);
+			res.status(users.getStatus()).json(users.getData());
+		} catch (error) {
 			let response = new AppError.UnexpectedError(error)
+			res.status(response.getStatus()).json(response.getData());
+		}
+	}
+
+	/**
+	 * send request and await the response to method show
+	 * @param {*} req 
+	 * @param {*} res 
+	 */
+	 async show(req, res){
+		try {
+			const users = await UserService.show(req.params.id);
+			res.status(users.getStatus()).json(users.getData());
+		} catch (error) {
+			let response = new AppError.UnexpectedError(error)
+			res.status(response.getStatus()).json(response.getData());
+		}
+	}
+ 
+	/**
+	 * send request and await the response to method update
+	 * @param {*} req 
+	 * @param {*} res 
+	 */
+	 async update(req, res){
+		try {
+			const users = await UserService.update(req.body, req.params.id);
+			res.status(users.getStatus()).json(users.getData());
+		} catch (error) {
+			let response = new AppError.UnexpectedError(error)
+			res.status(response.getStatus()).json(response.getData());
+		}
+	}
+
+	/**
+	 * send request and await the response to method destroy
+	 * @param {*} req 
+	 * @param {*} res 
+	 */
+	 async destroy(req, res){
+		try {
+			const users = await UserService.destroy(req.params.id);
+			res.status(users.getStatus()).json(users.getData());
+		} catch (error) {
+			let response = new AppError.UnexpectedError(error)
+			res.status(response.getStatus()).json(response.getData());
 		}
 	}
 }
