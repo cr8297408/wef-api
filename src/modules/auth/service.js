@@ -4,7 +4,6 @@ const UserService = require('../../modules/user/service');
 const HttpResponse = require('../../core/response/http-response');
 const AppError = require('../../core/errors/app-error');
 const jsonwebtoken = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 /**
  * @exports
@@ -31,9 +30,7 @@ const AuthService = {
       if (!user) {
         return new AppError.UnauthorizedError('credenciales incorrectas')
       }
-      // const result = bcrypt.compareSync(body.password, user.password);
-      result = password === user.password;
-      console.log(result);
+      const result = bcrypt.compareSync(password, user.password);
       if (!result) {
         return new AppError.UnauthorizedError('credenciales incorrectas')
       }
