@@ -69,9 +69,9 @@ class BaseService {
     }
   }
 
-  async destroy(){
+  async destroy(id){
     try {
-      await Producto.findByIdAndDelete(idProducto);
+      await this.model.findByIdAndDelete(id);
       return new HttpResponse.deleteSuccessful('deleted Ok!!!')
     } catch (error) {
       return new AppError.UnexpectedError(error)
