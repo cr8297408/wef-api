@@ -1,6 +1,8 @@
 const UserIndex = require('./user');
+const AuthIndex = require('./auth');
 
 
 module.exports = {
-	UserIndex
+	UserIndex,
+	AuthIndex
 }
