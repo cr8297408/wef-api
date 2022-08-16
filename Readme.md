@@ -8,3 +8,8 @@ windows:
 
 linux: 
 * sudo yarn dev
+
+
+si quieres probar los endpoints:
+
+https://rapidapi.com/cr8297408/api/wef-api/
