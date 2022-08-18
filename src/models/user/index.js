@@ -22,8 +22,8 @@ const usuarioSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	type: {
-		type: String,
+	isAdmin: {
+		type: Boolean,
 	},
 	active: {
 		type: Boolean,

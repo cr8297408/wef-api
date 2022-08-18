@@ -4,6 +4,7 @@ const UserService = require('../../modules/user/service');
 const HttpResponse = require('../../core/response/http-response');
 const AppError = require('../../core/errors/app-error');
 const jsonwebtoken = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 /**
  * @exports
@@ -25,7 +26,7 @@ const AuthService = {
         email
       })
 
-      console.log(user, email);
+      console.log(password, email);
 
       if (!user) {
         return new AppError.UnauthorizedError('credenciales incorrectas')
