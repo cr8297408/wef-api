@@ -21,7 +21,6 @@ const usuarioSchema = Joi.object({
 		.max(12),
 
 	password: Joi.string()
-		.pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
 		.required(),
 
 	type: Joi.string(),
